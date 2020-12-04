@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+// import Test from './Test'; // 컴포넌트를 부를 땐 vue 처럼 import하여 ReactDom.render에 넣어주면 됨
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    {/* <Test/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

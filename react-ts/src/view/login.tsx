@@ -4,7 +4,7 @@ class login extends Component {
     render() {
         return (
             <div>
-                <h1>Login View</h1>
+                <h1 className="text-base">Login View</h1>
             </div>
         );
     }

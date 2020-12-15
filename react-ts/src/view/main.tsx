@@ -4,7 +4,7 @@ class main extends Component {
     render() {
         return (
             <div className="main">
-                <h1>Main View</h1>
+                <h1 className="text-xs">Main View</h1>
             </div>
         );
     }

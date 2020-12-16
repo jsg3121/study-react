@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Main from './view/main';
-import Board from './view/board';
-import Login from './view/login';
+import Main from "./view/main";
+import Board from "./view/board";
+import Login from "./view/login";
+import Counter from "./view/counter";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           <Login />
         </Route>
       </Switch>
+      <div>
+        <Counter />
+      </div>
     </Router>
   );
 }

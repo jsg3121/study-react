@@ -1,19 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Main from "./view/main";
-import Board from "./view/board";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Login from "./view/login";
-import Counter from "./view/counter";
+import Main from "./view/main";
 
 import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <React.Fragment>
+      <Router>
+        {/* <div className="App">
         <ul>
           <li>
-            <Link to="/">Main</Link>
+            <Link to="/Main">Main</Link>
           </li>
           <li>
             <Link to="/login">login</Link>
@@ -22,23 +21,18 @@ function App() {
             <Link to="/board">board</Link>
           </li>
         </ul>
-      </div>
-
-      <Switch>
-        <Route exact path="/">
-          <Main />
-        </Route>
-        <Route exact path="/board">
-          <Board />
-        </Route>
-        <Route exact path="/login">
+      </div> */}
+        <Route path="/login">
           <Login />
         </Route>
-      </Switch>
-      <div>
-        <Counter />
-      </div>
-    </Router>
+        <Route path="/Main">
+          <Main />
+        </Route>
+        <Redirect to="/login">
+          <Login />
+        </Redirect>
+      </Router>
+    </React.Fragment>
   );
 }
 

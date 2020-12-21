@@ -1,1 +1,1 @@
-**aciton 폴더**
+**components 폴더**

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import "../style/Counter.css";
 
 type CounterProp = {
-    number: number | undefined;
-    color: string | undefined;
-    onIncresment: any;
-    onDecresment: any;
-    onSetColor: any;
+    number: number;
+    color: string;
+    onIncresment: () => number;
+    onDecresment: () => number;
+    onSetColor: () => string;
 };
 
-const Counter: React.FC<CounterProp> = ({ number, color, onIncresment, onDecresment, onSetColor }) => {
+const Counter = ({ number, color, onIncresment, onDecresment, onSetColor }: CounterProp) => {
     return (
         <div className="Counter" onClick={onIncresment}
             onContextMenu={

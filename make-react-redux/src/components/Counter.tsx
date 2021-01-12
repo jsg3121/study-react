@@ -1,7 +1,7 @@
 type types = {
   number: number;
-  onIncrease: any;
-  onDecrease: any;
+  onIncrease: () => void;
+  onDecrease: () => void;
 };
 
 

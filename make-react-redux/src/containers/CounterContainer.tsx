@@ -17,7 +17,13 @@ const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
     dispatch
   );
 
-const CounterContainer = ({ counterNum, increase, decrease }: any) => {
+type CounterCountainerType = {
+  counterNum: number;
+  increase: () => void;
+  decrease: () => void;
+};
+
+const CounterContainer = ({ counterNum, increase, decrease }: CounterCountainerType) => {
   return (
     <Counter number={counterNum} onIncrease={increase} onDecrease={decrease} />
   );

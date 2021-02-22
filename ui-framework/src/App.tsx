@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import AntDesignContainer from './container/AntDesignContainer';
+import BluePrintContainer from './container/BluePrintContainer';
 import { Button } from 'antd';
 
 function App() {
@@ -14,11 +15,19 @@ function App() {
               <Link to="/antDesign">antDesign</Link>
             </Button>
           </li>
+          <li>
+            <Button type="primary" size="middle">
+              <Link to="/bluePrint">bluePrint</Link>
+            </Button>
+          </li>
         </ul>
       </div>
       <Switch>
         <Route path="/antDesign">
           <AntDesignContainer></AntDesignContainer>
+        </Route>
+        <Route path="/bluePrint">
+          <BluePrintContainer></BluePrintContainer>
         </Route>
       </Switch>
     </Router>

@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
+    "@blueprintjs/core": "^3.39.0",
+    "@blueprintjs/table": "^3.8.23",
     "@craco/craco": "^6.1.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -24,6 +26,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src craco start",
+    "dev": "cross-env NODE_PATH=src craco start",
     "build": "cross-env NODE_PATH=src craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

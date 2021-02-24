@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import AntDesignContainer from './container/AntDesignContainer';
 import BluePrintContainer from './container/BluePrintContainer';
+import FluentUIContainer from './container/FluentUIContainer';
 import { Button } from 'antd';
 
 function App() {
@@ -20,6 +21,11 @@ function App() {
               <Link to="/bluePrint">bluePrint</Link>
             </Button>
           </li>
+          <li>
+            <Button type="primary" size="middle">
+              <Link to="/fluentUi">fluentUi</Link>
+            </Button>
+          </li>
         </ul>
       </div>
       <Switch>
@@ -28,6 +34,9 @@ function App() {
         </Route>
         <Route path="/bluePrint">
           <BluePrintContainer></BluePrintContainer>
+        </Route>
+        <Route path="/fluentUi">
+          <FluentUIContainer></FluentUIContainer>
         </Route>
       </Switch>
     </Router>

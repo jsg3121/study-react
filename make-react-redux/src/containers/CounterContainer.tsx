@@ -29,15 +29,4 @@ const CounterContainer = ({ counterNum, increase, decrease }: CounterCountainerT
   );
 };
 
-
-// class CounterContainer extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <Counter />
-//       </div>
-//     );
-//   }
-// }
-
 export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);

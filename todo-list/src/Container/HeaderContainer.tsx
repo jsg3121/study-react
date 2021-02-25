@@ -1,26 +1,29 @@
-import { Button } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Action } from 'redux-actions';
+import { AnyAction, bindActionCreators, Dispatch } from 'redux';
+import HeaderComponents from '../Components/HeaderComponents';
 import { login } from '../modules/module/loginModule';
 
-const HeaderContainer = () => {
+
+
+const mapStateToProps = ((state: { isLogin: { loginVal: any; }; }) => ({
+  loginVal: state.isLogin.loginVal
+}));
+
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
+  bindActionCreators(
+    {
+      login
+    },
+    dispatch
+  );
+
+const HeaderContainer = ({ loginVal }: any) => {
   return (
-    <div>
-      <Button onClick={login}>Login</Button>
-    </div>
+    <HeaderComponents login={loginVal}></HeaderComponents>
   );
 };
 
-const mapStateToProps = (state: { isLogin: { loginVal: any; }; }) => ({
-  loginVal: state.isLogin.loginVal
-});
-
-const mapDispatchToProps = (dispatch: (arg0: Action<any>) => any) => ({
-  login: () => dispatch(login()),
-});
-
-
-connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+connect(mapStateToProps, mapDispatchToProps)(HeaderComponents);
 
 export default HeaderContainer;

@@ -4,10 +4,11 @@ import { AnyAction, bindActionCreators, Dispatch } from 'redux';
 import HeaderComponents from '../Components/HeaderComponents';
 import { login } from '../modules/module/loginModule';
 
-const mapStateToProps = ((state: { isLogin: { loginVal: any; }; }) => {
-  console.log(state);
-  return state;
-});
+const mapStateToProps = (state: { activeLogin: { loginVal: { toString: () => string; }; }; }) => {
+  return ({
+    loginStatus: state.activeLogin.loginVal
+  });
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
   bindActionCreators(
@@ -17,9 +18,9 @@ const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
     dispatch
   );
 
-const HeaderContainer = ({ login }: any) => {
+const HeaderContainer = ({ login, loginStatus }: any) => {
   return (
-    <HeaderComponents login={login}></HeaderComponents>
+    <HeaderComponents login={login} status={loginStatus} />
   );
 };
 

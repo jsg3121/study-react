@@ -11,6 +11,7 @@ const isLogin = {
 const activeLogin = handleActions(
   {
     [LOGIN]: (state, action) => {
+      console.log(state.loginVal);
       return {
         loginVal: !state.loginVal,
       };

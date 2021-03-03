@@ -1,15 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import AntDesignContainer from './container/AntDesignContainer';
-import BluePrintContainer from './container/BluePrintContainer';
-import FluentUIContainer from './container/FluentUIContainer';
-import { Button } from 'antd';
 
 function App() {
   return (
     <Router>
-      <div>
+      {/* <div>
         <ul>
           <li>
             <Button type="primary" size="middle">
@@ -38,7 +35,10 @@ function App() {
         <Route path="/fluentUi">
           <FluentUIContainer></FluentUIContainer>
         </Route>
-      </Switch>
+      </Switch> */}
+      <Route path="/">
+        <AntDesignContainer></AntDesignContainer>
+      </Route>
     </Router>
   );
 }

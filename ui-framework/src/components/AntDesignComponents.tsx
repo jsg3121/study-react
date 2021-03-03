@@ -135,40 +135,41 @@ const AntDesignComponents = () => {
       dataIndex: 'key',
       sorter: (a: { key: number; }, b: { key: number; }) => a.key - b.key,
       width: "5%",
-      fixed: true
+      fixed: true,
     }, {
       title: 'Title',
       dataIndex: 'title',
-      width: "50%",
       ellipsis: true,
       editable: true
     }, {
       title: 'Category',
       dataIndex: 'category',
-      width: "10%",
+      width: "9%",
       editable: true
     }, {
       title: 'District',
       dataIndex: 'district',
-      width: "10%",
+      width: "7%",
       editable: true
     }, {
       title: 'Date',
       dataIndex: 'start_date',
       colSpan: 2,
-      width: "7%",
+      width: "8%",
     }, {
       title: 'EndDate',
       dataIndex: 'end_date',
       colSpan: 0,
-      width: "7%",
+      width: "8%",
     }, {
       title: 'UsageFee',
       dataIndex: 'usage_fee',
       ellipsis: true,
+      width: "9%",
     }, {
       title: 'operation',
       dataIndex: 'operation',
+      width: "7%",
       render: (_: any, record: editTableInterface) => {
         const editable = isEditing(record);
         return editable ? (
@@ -201,7 +202,7 @@ const AntDesignComponents = () => {
           inputType: col.dataIndex === 'age' ? 'number' : 'text',
           dataIndex: col.dataIndex,
           title: col.title,
-          editing: isEditing(record)
+          editing: isEditing(record),
         };
       }
     };
@@ -213,7 +214,8 @@ const AntDesignComponents = () => {
         <Table components={{ body: { cell: EditableCell } }} bordered columns={mergedColumns} rowClassName="editable-row"
           pagination={{
             onChange: cancel,
-          }} dataSource={data} scroll={{ x: 2000 }}></Table>
+            position: ['bottomCenter']
+          }} dataSource={data} scroll={{ x: 1230 }} size="small" className=""></Table>
       </Form>
     </div>
   );

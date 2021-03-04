@@ -1,16 +1,20 @@
-type types = {
-  number: number;
-  onIncrease: () => void;
-  onDecrease: () => void;
-};
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment } from '../Action/counter.action';
+import { RootState } from '../Store';
 
+const Counter = () => {
+  const count = useSelector<RootState>((state) => {
+    console.log(state);
+    return 111;
+  });
+  const dispatch = useDispatch();
 
-const Counter = ({ number, onIncrease, onDecrease }: types) => {
   return (
     <div>
-      <h1>{number}</h1>
-      <button onClick={onIncrease}>+ 1</button>
-      <button onClick={onDecrease}>- 1</button>
+      <h1>{count}</h1>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
     </div>
   );
 };

@@ -1,22 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import { AnyAction, createStore, Store } from 'redux';
 import { Provider } from "react-redux";
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
-import rootReducer from "./modules";
+import store from './Store';
 import App from './App';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
 
-const store: Store<any, AnyAction> = createStore(rootReducer);
-const persistor = persistStore(store);
-
+let persistor = persistStore(store);
 
 ReactDOM.render(
-  <Provider store={store} >
-    <PersistGate loading={null} persistor={persistor}></PersistGate>
-    <App />
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

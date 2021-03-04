@@ -1,32 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { AnyAction, bindActionCreators, Dispatch } from 'redux';
 import Counter from "../components/Counter";
-import { increase, decrease } from "../modules/module/counter";
 
-const mapStateToProps = ((state: { counter: { number: number; }; }) => ({
-  counterNum: state.counter.number
-}));
-
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
-  bindActionCreators(
-    {
-      increase,
-      decrease
-    },
-    dispatch
-  );
-
-type CounterCountainerType = {
-  counterNum: number;
-  increase: () => void;
-  decrease: () => void;
-};
-
-const CounterContainer = ({ counterNum, increase, decrease }: CounterCountainerType) => {
+const CounterContainer = () => {
   return (
-    <Counter number={counterNum} onIncrease={increase} onDecrease={decrease} />
+    <Counter />
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
+export default CounterContainer;

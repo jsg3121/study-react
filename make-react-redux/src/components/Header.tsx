@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = ({ login }: any) => {
+const Header = () => {
   return (
     <div>
-      <button onClick={login}></button>
+      <button>로그인</button>
     </div>
   );
 };

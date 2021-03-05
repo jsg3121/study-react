@@ -7,8 +7,8 @@ export interface TaskProps {
     state?: string;
     updatedAt?: Date;
   },
-  onArchiveTask: () => void,
-  onPintask: () => void;
+  onArchiveTask?: () => void,
+  onPintask?: () => void;
 }
 
 const Task: React.FC<TaskProps> = ({ task: { id, title, state, updatedAt }, onArchiveTask, onPintask }) => {

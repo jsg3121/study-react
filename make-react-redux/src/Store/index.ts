@@ -1,22 +1,16 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import counterReducer from "../Reducer/counterReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import countReducer from "../Reducer/counterReducer";
 
-const reducers = combineReducers({
-  count: counterReducer,
-});
+// const reducers = combineReducers({
+//   count: counterReducer,
+// });
 
-const persistConfig = {
-  key: "root",
-  storage,
-};
-const persistedReducer = persistReducer(persistConfig, reducers);
-
-export type RootState = ReturnType<typeof reducers>;
-
-export default configureStore({
+// export type RootState = ReturnType<typeof reducers>;
+const store = configureStore({
   reducer: {
-    persistedReducer,
+    counter: countReducer,
   },
 });
+export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

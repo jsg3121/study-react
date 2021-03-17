@@ -1,45 +1,22 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement } from '../Reducer/counterReducer';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { decrement, increment } from '../Action/counter.action';
-// import { RootState } from '../Store';
-
-interface CounterState {
-
-}
+import { useAppDispatch, useAppSelector } from '../Store/hooks';
+import { decrement, increment } from '../Action/counter.action';
 
 const Counter = () => {
-  // const count: any = useSelector<RootState>(state => {
-  //   return state;
-  // });
 
-  // console.log(count);
-
-
-
-
-  const count = useSelector(state => {
-    return state.counter.count;
+  const count = useAppSelector(state => {
+    return state.counter;
   });
 
   console.log(count);
 
-  const dispatch = useDispatch();
-
-  // const incrementNumber = () => {
-  //   dispatch(increment);
-  // };
-  // const decrementNumber = () => {
-  //   dispatch(decrement);
-  // };
-
+  const dispatch = useAppDispatch();
 
   return (
     <div>
-      <h1>dd</h1>
-      <button onClick={() => dispatch(increment)}>Increment</button>
-      <button onClick={() => dispatch(decrement)}>Decrement</button>
+      <h1>{count}</h1>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
     </div>
   );
 };

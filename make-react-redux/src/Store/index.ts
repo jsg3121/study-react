@@ -1,16 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { combineEpics, createEpicMiddleware } from "redux-observable";
+import countEpic from "../Epic/counter.epic";
 import countReducer from "../Reducer/counterReducer";
 
-// const reducers = combineReducers({
-//   count: counterReducer,
-// });
+export const rootEpic = combineEpics(countEpic);
+const epicMiddleWare = createEpicMiddleware();
 
-// export type RootState = ReturnType<typeof reducers>;
 const store = configureStore({
   reducer: {
     counter: countReducer,
   },
+  middleware: [epicMiddleWare],
 });
+
+epicMiddleWare.run(rootEpic);
+
 export default store;
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;

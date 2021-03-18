@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { increment, decrement } from "../Action/counter.action";
+import { increment, decrement, incrementAsync } from "../Action/counter.action";
 
 export const counterState = 0;
 
@@ -9,6 +9,9 @@ const counter = createReducer(counterState, (builder) => {
   });
   builder.addCase(decrement, (state) => {
     return state - 1;
+  });
+  builder.addCase(incrementAsync, (state) => {
+    return state + 1;
   });
 });
 

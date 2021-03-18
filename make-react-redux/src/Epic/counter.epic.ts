@@ -1,15 +1,16 @@
-import { Observable } from "rxjs";
-import { filter, map } from "rxjs/operators";
-import { Action } from "@reduxjs/toolkit";
-import { increment } from "../Action/counter.action";
+import { Action } from "redux";
+import { Epic } from "redux-observable";
+import { delay, filter, map } from "rxjs/operators";
+import { increment, incrementAsync } from "../Action/counter.action";
+import * as countActions from "../Action/counter.action";
 
-const countEpic = (actions$: Observable<Action>) => {
-  actions$.pipe(
+type Actions = typeof countActions;
+
+const countEpic: Epic<Action<Actions>, Action<any>, void, any> = (actions$) => {
+  return actions$.pipe(
     filter(increment.match),
-    map((action) => {
-      console.log(action);
-      console.log("ddddddd");
-    })
+    delay(1000),
+    map(() => incrementAsync())
   );
 };
 
